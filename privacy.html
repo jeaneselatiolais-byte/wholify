@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Privacy Policy — Wholify</title>
+  <meta name="description" content="Wholify Privacy Policy. No accounts, no ads, no analytics SDKs. Your dietary profile stays on your device.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a href="./" class="brand"><span class="mark"></span>Wholify</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./about.html">About</a>
+        <a href="./support.html">Support</a>
+        <a class="current" href="./privacy.html" aria-current="page">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective April 2026 · Publisher: Jeanese Latiolais (appsbyai) · Contact: <a href="mailto:jeanese.latiolais@gmail.com">jeanese.latiolais@gmail.com</a></p>
+
+    <div class="card sage">
+      <h3>Quick summary</h3>
+      <ul style="margin-bottom:0">
+        <li>No account. No sign-up. No email collection.</li>
+        <li>No ads. No analytics SDKs. No advertising identifier.</li>
+        <li>Your dietary profile, saved recipes, saved swaps, and conversion history live on your device.</li>
+        <li>Ingredient swaps are sent to our server, which forwards them to Anthropic's Claude API. Each request carries a random per-device UUID (Keychain-stored) for rate limiting — it's not linked to your Apple ID or any personal identity.</li>
+      </ul>
+    </div>
+
+    <h2>1. What stays on your device</h2>
+    <p>These data live in the on-device database (SwiftData) and never sync to our servers:</p>
+    <ul>
+      <li>Dietary profile (dietary goals, allergens, disclaimer acknowledgement)</li>
+      <li>Saved swaps, saved recipes, favorite conversions</li>
+      <li>Conversion history and recent swap queries</li>
+      <li>Local cache of previous swap responses (for offline fallback)</li>
+    </ul>
+    <p>Uninstalling the app removes all of this.</p>
+
+    <h2>2. What goes to our server</h2>
+    <p>When you use the Swap feature or paste a recipe URL/text, we send the following over HTTPS to our Cloudflare Worker proxy, which forwards the ingredient-substitution portion to Anthropic's Claude API:</p>
+    <ul>
+      <li>The ingredient name or recipe URL/text you submitted</li>
+      <li>Your active dietary goals (e.g., "lower sugar", "higher fiber")</li>
+      <li>Your active allergens (e.g., "dairy-free", "peanut-free")</li>
+      <li>A random per-device UUID (the <code>X-Wholify-Device-Id</code> header), used only to apply free-tier daily rate limits and to assign an A/B experimental variant. This UUID:
+        <ul>
+          <li>Is stored in your device Keychain (not iCloud-synced)</li>
+          <li>Is not linked to your Apple ID, email, name, or any personal identifier</li>
+          <li>Cannot be used to identify you across other apps, websites, or advertisers</li>
+          <li>Cannot be recovered by us — if you reinstall the app, a new UUID is generated</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Requests are logged in Cloudflare's standard edge logs (short retention, IP-level) for abuse prevention. We do not associate request content with your UUID for long-term storage.</p>
+
+    <h2>3. What we don't collect</h2>
+    <ul>
+      <li>No account, email, name, phone number, address</li>
+      <li>No location data of any kind</li>
+      <li>No contacts, calendar, reminders, photos</li>
+      <li>No advertising identifier (IDFA) — ATT is not used because we don't track</li>
+      <li>No analytics SDKs (no Firebase Analytics, no Mixpanel, no Amplitude, no Segment, no in-house analytics beyond the paywall funnel telemetry described in §5)</li>
+      <li>No crash-reporting SDKs that collect device fingerprints</li>
+    </ul>
+
+    <h2>4. Voice input</h2>
+    <p>Voice transcription uses Apple's on-device Speech framework (<code>SFSpeechRecognizer</code> with <code>requiresOnDeviceRecognition = true</code>). Audio bytes never leave your device. If on-device recognition is unavailable for your locale, the feature fails fast rather than falling back to server-side recognition.</p>
+
+    <h2>5. Paywall funnel telemetry</h2>
+    <p>When the paywall is shown, dismissed, or a purchase/restore succeeds, we send a small event to our server describing the event type and the reason the paywall was shown (e.g., "daily healthy swap limit reached"). These events include only:</p>
+    <ul>
+      <li>The event type (<code>impression</code>, <code>dismissed</code>, <code>purchased</code>, <code>restored</code>)</li>
+      <li>The reason the paywall was shown (a fixed enum — e.g., "dietary_profile_cap")</li>
+      <li>Your A/B variant assignment (e.g., "A")</li>
+      <li>The app version (e.g., "1.0.0 (42)")</li>
+      <li>The <code>X-Wholify-Device-Id</code> described in §2</li>
+    </ul>
+    <p>No ingredient text, recipe content, or personal information is included in these events.</p>
+
+    <h2>6. Third parties</h2>
+    <ul>
+      <li><strong>Anthropic (Claude API)</strong> — processes ingredient-substitution and recipe-parsing requests. Anthropic's own policies govern how they handle the request content on their end; they do not receive your device UUID, Apple ID, or any identifier we don't have ourselves.</li>
+      <li><strong>Cloudflare Workers</strong> — hosts our API proxy. Cloudflare's standard edge log retention applies to request metadata (IPs, timestamps, path).</li>
+      <li><strong>Apple (StoreKit)</strong> — handles all subscription and tip-jar purchases. We never see payment-card, bank, or billing information; Apple provides us only an opaque purchase-verification receipt.</li>
+    </ul>
+    <p>No other third parties receive any data from Wholify.</p>
+
+    <h2>7. Data retention</h2>
+    <ul>
+      <li><strong>On-device data</strong> — kept until you delete it or uninstall the app. Use Settings → Delete saved data to wipe recipes, swaps, conversions, and caches (your dietary profile is preserved; uninstall the app to remove that).</li>
+      <li><strong>Server logs</strong> — request metadata (path, timestamps, device UUID, IP) is retained by Cloudflare per their default log retention (typically 30 days for Workers logs). Swap-response cache entries live up to 24 hours keyed by a normalized ingredient string.</li>
+      <li><strong>Paywall telemetry</strong> — aggregated for A/B analysis. Individual events are retained up to 90 days.</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>Wholify is not directed at children under 13. We do not knowingly collect information from children. The app is rated 4+ because it is suitable for all ages, not because it is targeted at children.</p>
+
+    <h2>9. Your controls</h2>
+    <ul>
+      <li><strong>Delete saved data</strong> — Settings → Data → Delete saved data removes everything stored on-device except your dietary profile.</li>
+      <li><strong>Uninstall the app</strong> — removes the dietary profile and the per-device UUID.</li>
+      <li><strong>Disable voice / camera permissions</strong> — iOS Settings → Wholify → revoke at any time.</li>
+      <li><strong>Cancel subscription</strong> — iOS Settings → Apple ID → Subscriptions.</li>
+      <li><strong>Request data deletion</strong> — since no account-tied data is retained server-side, uninstalling the app accomplishes this. Contact us at the email above if you want us to verify no lingering request logs reference your device UUID.</li>
+    </ul>
+
+    <h2>10. Changes to this policy</h2>
+    <p>We'll update this page and the in-app Privacy sheet if anything material changes. If we ever add an analytics SDK, ad SDK, or user-account system, that will be announced in-app before the change takes effect.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions? <a href="mailto:jeanese.latiolais@gmail.com">jeanese.latiolais@gmail.com</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 appsbyai — made by Jeanese Latiolais.</div>
+    <div class="footer-links">
+      <a href="./about.html">About</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>

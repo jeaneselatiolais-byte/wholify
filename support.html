@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Support — Wholify</title>
+  <meta name="description" content="Wholify support — how to cancel your subscription, restore purchases, delete your data, and contact us.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a href="./" class="brand"><span class="mark"></span>Wholify</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./about.html">About</a>
+        <a class="current" href="./support.html" aria-current="page">Support</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <h1>Support</h1>
+    <p class="lede">Need help? Email <a href="mailto:jeanese.latiolais@gmail.com?subject=Wholify%20support">jeanese.latiolais@gmail.com</a> and we'll reply within 2 business days. Most questions are answered below.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:jeanese.latiolais@gmail.com?subject=Wholify%20support">Email support</a>
+    </div>
+
+    <h2>Subscriptions &amp; purchases</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I cancel my subscription?</summary>
+        <p>iOS Settings → Apple ID (your name at the top) → Subscriptions → Wholify → Cancel Subscription. Your subscription stays active until the end of the current billing period.</p>
+      </details>
+      <details>
+        <summary>How do I restore a purchase on a new device?</summary>
+        <p>Open Wholify → Settings → Subscription → <strong>Restore purchases</strong>. Make sure you're signed in with the same Apple ID that made the original purchase. Both the Monthly/Annual subscriptions and the Lifetime purchase restore this way.</p>
+      </details>
+      <details>
+        <summary>How do I request a refund?</summary>
+        <p>Refunds are handled by Apple, not Wholify. Visit <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>, sign in with your Apple ID, and find the Wholify purchase in your history. We can't process refunds on our end — we never see payment details.</p>
+      </details>
+      <details>
+        <summary>I was charged but Pro isn't active.</summary>
+        <p>First, tap <strong>Restore purchases</strong> (Settings → Subscription → Restore purchases). If that doesn't flip Pro on, check Settings → Apple ID → Subscriptions to confirm the purchase completed and which Apple ID it's attached to. Pro only unlocks on the Apple ID that made the purchase. Still stuck? Email us.</p>
+      </details>
+      <details>
+        <summary>Why is the Tip Jar separate from Pro?</summary>
+        <p>Tips are optional one-time purchases that don't unlock features. Wholify Pro is the feature upgrade. We keep them separate so you can tip us even if you already have Lifetime Pro, and so you never feel obligated.</p>
+      </details>
+    </div>
+
+    <h2>Features &amp; usage</h2>
+    <div class="faq">
+      <details>
+        <summary>Does Wholify work offline?</summary>
+        <p>Yes — the unit converter (including ingredient-aware volume-to-weight) and recipe scaling both work fully offline. Ingredient swaps require an internet connection because they call an AI model server-side. If you've done a swap before, we'll show the cached result when offline.</p>
+      </details>
+      <details>
+        <summary>Is my voice sent to the cloud?</summary>
+        <p>No. Voice transcription runs on-device using Apple's Speech framework. Audio bytes never leave your phone. If on-device recognition isn't available for your locale, the voice feature will tell you rather than silently upload audio.</p>
+      </details>
+      <details>
+        <summary>How accurate are the allergen filters?</summary>
+        <p>The allergen filter is safety-critical. Before any AI response reaches your device, our server strips ingredients matching your allergen list — including common hidden sources (casein/whey for dairy, semolina/panko for gluten, tahini for sesame, etc.). That said, <strong>always read ingredient labels on commercial products</strong>. AI-generated suggestions are a starting point, not medical clearance.</p>
+      </details>
+      <details>
+        <summary>What's the difference between Standard and Healthy swap modes?</summary>
+        <p><strong>Standard</strong> gives you like-for-like substitutes when you're out of something (e.g., "I'm out of buttermilk" → yogurt). <strong>Healthy</strong> gives you better-for-you alternatives aligned to your dietary profile (e.g., "make white rice healthier" → cauliflower rice with a fiber rationale). Both modes respect your allergens.</p>
+      </details>
+      <details>
+        <summary>Why is my dietary profile limited to 2 goals on the free tier?</summary>
+        <p>Free users can stack up to 2 dietary goals (e.g., "lower sugar" + "higher fiber"). Pro unlocks the full profile with no limit. Allergens are never capped — safety is always free.</p>
+      </details>
+      <details>
+        <summary>Can I import recipes from a URL?</summary>
+        <p>Yes — Recipe URL import is a Pro feature. Paste any recipe URL from a food blog; we extract the structured recipe data (title, ingredients, servings, instructions) and present it in Wholify's tap-to-convert / tap-to-swap view.</p>
+      </details>
+    </div>
+
+    <h2>Privacy &amp; data</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I delete my data?</summary>
+        <p>Wholify → Settings → Delete saved data removes everything on-device except your dietary profile. Uninstalling the app removes the dietary profile as well. Since there's no account tied to your data on the server, uninstalling is a full deletion.</p>
+      </details>
+      <details>
+        <summary>Do you track me across other apps?</summary>
+        <p>No. No advertising identifier, no analytics SDK, no attribution SDK, no social-login pixel. The only thing we send is a random per-device UUID for rate limiting, and it's not linked to your Apple ID or any personal identity. See the full <a href="./privacy.html">Privacy Policy</a>.</p>
+      </details>
+      <details>
+        <summary>Do you sell my data?</summary>
+        <p>No. We have nothing to sell — no account, no email, no profile, no behavioral data.</p>
+      </details>
+    </div>
+
+    <h2>Still stuck?</h2>
+    <p>Email <a href="mailto:jeanese.latiolais@gmail.com?subject=Wholify%20support">jeanese.latiolais@gmail.com</a> with:</p>
+    <ul>
+      <li>Your device model and iOS version (Settings → General → About)</li>
+      <li>The Wholify version (Settings → About → bottom of the sheet)</li>
+      <li>A screenshot of what's happening, if relevant</li>
+    </ul>
+    <p>We typically reply within 2 business days.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 appsbyai — made by Jeanese Latiolais.</div>
+    <div class="footer-links">
+      <a href="./about.html">About</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>

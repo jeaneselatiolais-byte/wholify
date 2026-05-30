@@ -1,0 +1,348 @@
+/*
+ * Wholify / appsbyai — shared site styles.
+ * Brand palette ("Market Fresh") matches the in-app brand:
+ *   Sage   #6B8E5A  (brand anchor — links, accents)
+ *   Tomato #E04E39  (CTA only — primary button)
+ *   Paper  #FAF6EE  (warm off-white background)
+ *
+ * Layout principles: one readable column, generous line-height, no hero
+ * video or carousel. Legal pages must load fast and render cleanly in a
+ * reviewer's browser on their first visit.
+ */
+
+:root {
+  /* Market Fresh palette — sage is the brand anchor, tomato is CTA-only */
+  --brand: #6B8E5A;        /* sage — links, accents, brand field */
+  --brand-deep: #3D4F2E;   /* deep sage — headings, hover, emphasis */
+  --sage: #6B8E5A;         /* alias for tinted surfaces */
+  --sage-deep: #3D4F2E;
+  --cta: #E04E39;          /* tomato — primary action ONLY */
+  --cta-deep: #B53D2B;     /* tomato pressed */
+  --paper: #FAF6EE;        /* warm off-white background */
+  --paper-deep: #F0E9DA;   /* secondary warm surface */
+  --ink: #1F2420;          /* primary text */
+  --ink-soft: #5A5450;
+  --ink-faint: #8A857C;
+  --divider: #E8E0D2;      /* warm hairline */
+  --max-width: 720px;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover { color: var(--brand); }
+
+/* ---------- Page chrome ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--divider);
+  background: var(--paper);
+}
+
+.site-header .bar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand .mark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: url("favicon.svg") center / cover no-repeat;
+  transform: translateY(3px);
+}
+
+.site-nav {
+  display: flex;
+  gap: 18px;
+  font-size: 15px;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-nav a:hover { color: var(--brand-deep); }
+
+.site-nav a.current {
+  color: var(--brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.site-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+}
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--divider);
+  color: var(--ink-faint);
+  font-size: 14px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--brand-deep);
+  text-decoration: underline;
+}
+
+.site-footer .footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 48px 0 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--divider);
+}
+
+h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 28px 0 8px;
+}
+
+p { margin: 0 0 16px; }
+
+ul, ol { padding-left: 22px; margin: 0 0 16px; }
+
+li { margin-bottom: 6px; }
+
+.lede {
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+}
+
+.updated {
+  color: var(--ink-faint);
+  font-size: 14px;
+  margin-bottom: 32px;
+  margin-top: -4px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 32px 0;
+}
+
+/* ---------- Components ---------- */
+
+.card {
+  background: #fff;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0 0 20px;
+}
+
+.card.sage {
+  background: color-mix(in srgb, var(--sage) 10%, #fff);
+  border-color: color-mix(in srgb, var(--sage) 25%, var(--divider));
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--brand-deep);
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform .05s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--cta);
+  color: #fff;
+}
+
+.btn-primary:hover { background: var(--cta-deep); color: #fff; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--divider);
+}
+
+.btn-secondary:hover { border-color: var(--brand); color: var(--brand-deep); }
+
+/* Hero — used on index.html */
+
+.hero {
+  padding: 24px 0 12px;
+}
+
+.hero .tagline {
+  font-size: 22px;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  max-width: 560px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+@media (min-width: 680px) {
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.feature {
+  background: #fff;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.feature h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  color: var(--brand-deep);
+}
+
+.feature p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* FAQ — used on support.html */
+
+.faq details {
+  background: #fff;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 10px;
+}
+
+.faq details[open] { background: color-mix(in srgb, var(--paper) 60%, #fff); }
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::before {
+  content: "+";
+  display: inline-block;
+  width: 18px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.faq details[open] summary::before { content: "−"; }
+
+.faq details > p,
+.faq details > ul {
+  margin-top: 10px;
+  color: var(--ink-soft);
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 520px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 22px; }
+  .site-main { padding: 32px 20px 56px; }
+  .lede { font-size: 17px; }
+  .site-header .bar { padding: 14px 20px; }
+}

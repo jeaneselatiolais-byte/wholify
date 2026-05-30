@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>About — Wholify &amp; appsbyai</title>
+  <meta name="description" content="About Wholify and the indie developer behind it. Built by Jeanese Latiolais under the appsbyai label.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="bar">
+      <a href="./" class="brand"><span class="mark"></span>Wholify</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="current" href="./about.html" aria-current="page">About</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <h1>About Wholify</h1>
+    <p class="lede">Wholify solves three cooking pain points that don't have good native solutions: awkward unit math, unavailable ingredients, and the gap between "what the recipe calls for" and "what fits my diet." It's an indie app built by one person, without VC, without ads, and without a tracking industry attached to it.</p>
+
+    <h2>Why this app exists</h2>
+    <p>Every home cook has the same three moments: realizing the recipe is in cups but the butter is in grams; pulling the buttermilk out of the fridge and finding it expired; wondering whether you can make this dish work with less sugar. The answers usually exist on the internet, spread across a dozen unreliable pages you have to leave the recipe to find.</p>
+    <p>Wholify puts those answers in one place, with a format that works while your hands are covered in flour — voice input, offline math, and a bias toward cooking viability over heroic precision.</p>
+
+    <h2>How it's built</h2>
+    <ul>
+      <li><strong>Native SwiftUI.</strong> No web views dressed up as an app. The unit converter and recipe scaler work completely offline, because anything cooking-adjacent that requires a network connection to do basic math is a broken tool.</li>
+      <li><strong>AI swaps via Anthropic's Claude.</strong> Ingredient substitution is a bounded task that a capable language model handles well — ratio-aware, context-aware, allergen-aware. The model runs server-side so the iOS binary stays small and we can update behavior without shipping a new build.</li>
+      <li><strong>On-device voice.</strong> We use Apple's on-device Speech framework. Audio bytes never leave your phone. This was a design constraint, not an optimization.</li>
+      <li><strong>Server-side allergen filter.</strong> If you tell Wholify you're dairy-free, the server strips any response mentioning milk, cream, butter, yogurt, cheese, ghee, casein, or whey before results reach your device. It's the one piece of the app that matters if it's wrong, so it's enforced in two places.</li>
+    </ul>
+
+    <h2>What Wholify is not</h2>
+    <ul>
+      <li>Not medical advice. Wholify is a kitchen companion, not a dietitian. Read labels. Consult a professional for real dietary decisions. <a href="./terms.html">See the full non-medical disclaimer</a>.</li>
+      <li>Not an ad-supported app. No banners, no interstitials, no "subscribe to remove ads" dark patterns — because we don't show ads at all.</li>
+      <li>Not a data broker. No analytics SDK, no advertising identifier, no cross-app tracking. See the <a href="./privacy.html">Privacy Policy</a> for the full list of what we don't collect.</li>
+    </ul>
+
+    <h2>appsbyai</h2>
+    <p>appsbyai is the label under which I, <strong>Jeanese Latiolais</strong>, ship small, focused apps. The name is a nod to working alongside AI tools during development — not about the apps being "AI apps" in the product sense. Wholify is the second release under this label.</p>
+
+    <h2>Get in touch</h2>
+    <p>Feedback, press, or collaboration inquiries welcome at <a href="mailto:jeanese.latiolais@gmail.com">jeanese.latiolais@gmail.com</a>.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 appsbyai — made by Jeanese Latiolais.</div>
+    <div class="footer-links">
+      <a href="./about.html">About</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>
